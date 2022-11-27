@@ -5,11 +5,7 @@ import { InputBox } from './Components/InputBoxComponent';
 import { NavBar } from './Components/NavBarComponent';
 
 
-export function WelcomePage() {
-    const [page, setPage] = useState(1);
-    const [username, setUsername] = useState("");
-    const [email, setEmail] = useState("");
-    const [pWord, setPWord] = useState("");
+export function WelcomePage(page, setPage, username, setUsername, email, setEmail, pWord, setPWord) {
     
     const WelcomePage_1 = () => {
         return (
@@ -65,7 +61,7 @@ export function WelcomePage() {
                         left: '50%',
                         transform: 'translateX(-50%)',
                     }}>
-                    <Button title={"Login"} style={
+                    <Button onPress={() => setPage(4)} title={"Login"} style={
                     {
                         backgroundColor: 'red',
                         color: 'Green',
@@ -96,7 +92,7 @@ export function WelcomePage() {
                         left: '50%',
                         transform: 'translateX(-50%)',
                     }}>
-                    <Button title={"Sign Up"} style={
+                    <Button onPress={() => setPage(4)} title={"Sign Up"} style={
                     {
                         backgroundColor: 'red',
                         color: 'Green',

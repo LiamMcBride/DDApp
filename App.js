@@ -1,22 +1,39 @@
 import { Button, Dimensions, StyleSheet, Text, View } from 'react-native';
 import {WelcomePage} from './WelcomePage';
+import { useState } from 'react';
+import { HomePage } from './HomePage';
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      {/* <Text>lol</Text>
-      <Text>Hello</Text>
-      <Button title={"yo"} style={
-        {
-          backgroundColor: 'red',
-          color: 'Green'
-        }
-      }/> */}
-      {WelcomePage()}
-      {console.log(Dimensions.get('window').width)}
-    </View>
+  const [page, setPage] = useState(1);
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [pWord, setPWord] = useState("");
 
-  );
+  if(page <= 3 && page >= 1){
+    return (
+      <View style={styles.container}>
+        {/* <Text>lol</Text>
+        <Text>Hello</Text>
+        <Button title={"yo"} style={
+          {
+            backgroundColor: 'red',
+            color: 'Green'
+          }
+        }/> */}
+        {WelcomePage(page, setPage, username, setUsername, email, setEmail, pWord, setPWord)}
+      </View>
+  
+    );
+  }
+  else {
+    return (
+      <View style={styles.container}>
+        {HomePage(page, setPage, username, setUsername, email, setEmail, pWord, setPWord)}
+      </View>
+  
+    );
+  }
+
 }
 
 const styles = StyleSheet.create({
